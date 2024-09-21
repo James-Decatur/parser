@@ -52,10 +52,11 @@ class Transform(object):
         for field in self:
             if field not in self.src and field not in self.tgt:
                 continue
-            if not self.training and field in self.tgt:
-                continue
+            #if not self.training and field in self.tgt:
+                #continue
             if not isinstance(field, Iterable):
                 field = [field]
+                print('Here 1')
             for f in field:
                 if f is not None:
                     flattened.append(f)
