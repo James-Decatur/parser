@@ -118,7 +118,8 @@ class BiaffineDependencyParser(Parser):
 
     @torch.no_grad()
     def pred_step(self, batch: Batch) -> Batch:
-        words, _, *feats = batch
+        #words, _, *feats = batch
+        words, _, *feats, arcs, rels = batch
         mask, lens = batch.mask, (batch.lens - 1).tolist()
         # ignore the first token of each sentence
         mask[:, 0] = 0
